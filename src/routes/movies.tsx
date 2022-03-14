@@ -1,48 +1,23 @@
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-} from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { DataTable } from "../components/data-table";
+import { useGetMovies } from "../hooks/useGetMovies";
 export function MoviesPage() {
+  const { data, loading, fetchData } = useGetMovies();
+
+  const { page, results, total_pages, total_results } = data;
+
+  useEffect(() => {
+    fetchData(1);
+  }, []);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
-    <Table variant="simple">
-      <TableCaption>Movies</TableCaption>
-      <Thead>
-        <Tr>
-          <Th>To convert</Th>
-          <Th>into</Th>
-          <Th isNumeric>multiply by</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        <Tr>
-          <Td>inches</Td>
-          <Td>millimetres (mm)</Td>
-          <Td isNumeric>25.4</Td>
-        </Tr>
-        <Tr>
-          <Td>feet</Td>
-          <Td>centimetres (cm)</Td>
-          <Td isNumeric>30.48</Td>
-        </Tr>
-        <Tr>
-          <Td>yards</Td>
-          <Td>metres (m)</Td>
-          <Td isNumeric>0.91444</Td>
-        </Tr>
-      </Tbody>
-      <Tfoot>
-        <Tr>
-          <Th>To convert</Th>
-          <Th>into</Th>
-          <Th isNumeric>multiply by</Th>
-        </Tr>
-      </Tfoot>
-    </Table>
+    <Stack p={40}>
+      <DataTable movies={results} />
+    </Stack>
   );
 }

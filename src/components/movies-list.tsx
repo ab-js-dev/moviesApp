@@ -1,5 +1,5 @@
-import { Box } from "@chakra-ui/react";
+import { Movie } from "../types/movies";
 
-export function MoviesContainer() {
-  return <Box></Box>;
+export function MoviesContainer(props: { movies: Movie[] }) {
+  return {};
 }

@@ -1,13 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import "./App.css";
-
-import { MoviesContainer } from "./components/movies-container";
+import { MoviesHeader } from "./components/movies-header";
 
 function App() {
   return (
     <div className="App">
-      <MoviesContainer />
+      <MoviesHeader />
       <Outlet />
     </div>
   );
