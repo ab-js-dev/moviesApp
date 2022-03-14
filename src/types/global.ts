@@ -1,5 +1,7 @@
+import { Movie } from "./movies";
+
 export interface AppState {
-  test: string;
+  movies: Movie[];
 }
 
 export interface AppAction<T> {
@@ -8,5 +10,5 @@ export interface AppAction<T> {
 }
 
 export const initState = {
-  test: "redux",
+  movies: [],
 };
