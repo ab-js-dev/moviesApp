@@ -32,7 +32,7 @@ export function MoviesPage() {
 
   if (loading) return <MoviesListSkelton />;
   return (
-    <Tabs m={40}>
+    <Tabs m={16}>
       <TabList borderBottom={0}>
         <Tab>
           <Icon as={BsListCheck} mr={4} />

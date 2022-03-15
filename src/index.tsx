@@ -9,6 +9,7 @@ import { MyListPage } from "./routes/my-list";
 import { Provider } from "react-redux";
 import { persistor, store } from "./store/store";
 import { PersistGate } from "redux-persist/integration/react";
+import Home from "./routes/home";
 
 const theme = extendTheme({
   config: {
@@ -26,14 +27,8 @@ ReactDOM.render(
               <Route path="/" element={<App />}>
                 <Route path="/movies" element={<MoviesPage />} />
                 <Route path="/my-list" element={<MyListPage />} />
-                <Route
-                  path="*"
-                  element={
-                    <main style={{ padding: "1rem" }}>
-                      <p>There's nothing here!</p>
-                    </main>
-                  }
-                />
+                <Route index={true} element={<Home />} />
+                <Route path="*" element={<Home />} />
               </Route>
             </Routes>
           </BrowserRouter>

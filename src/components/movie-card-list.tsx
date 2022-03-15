@@ -15,6 +15,7 @@ export function MovieCardList(props: ListingProps) {
             onRemoveFromList={onRemoveFromList}
             isMyList={isMyList}
             isOnList={isOnList}
+            key={movie?.id}
           />
         );
       })}
