@@ -1,17 +1,10 @@
 import { Table, Thead, Tbody, Tr, Th, Td, Image } from "@chakra-ui/react";
-import { Movie } from "../types/movies";
+import { ListingProps } from "../types/movies";
 import { movieExistOnState } from "../utils/helper";
 import { AddToList } from "./add-to-llst";
 import { RemoveFromList } from "./remove-from-list";
 
-export type DatatablesProps = {
-  movies: Movie[];
-  myList: Movie[];
-  isMyList?: boolean;
-  onAddToList: (movie: Movie) => void;
-  onRemoveFromList: (id: number) => void;
-};
-export function DataTable(props: DatatablesProps) {
+export function DataTable(props: ListingProps) {
   const { movies, myList, isMyList, onAddToList, onRemoveFromList } = props;
   const listOfMovies = isMyList ? myList : movies;
   return (
@@ -40,7 +33,8 @@ export function DataTable(props: DatatablesProps) {
                   alt={title}
                   src={imageSource}
                   boxSize="100px"
-                  objectFit="fill"
+                  p={2}
+                  objectFit="cover"
                 />
               </Td>
               <Td>

@@ -15,6 +15,7 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
@@ -55,7 +56,9 @@ export function MoviesHeader() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box>Logo</Box>
+            <NavLink key={"home"} to={"/"}>
+              <Image src="img/logo.png" alt="logo" boxSize={50} />
+            </NavLink>
             <HStack
               as={"nav"}
               spacing={4}
