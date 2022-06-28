@@ -1,6 +1,7 @@
-import { Box, Stack } from "@chakra-ui/react";
+import { Box, Link, Stack } from "@chakra-ui/react";
 import { DataTable } from "../components/data-table";
 import { useDispatchActions } from "../hooks/useDisptachActions";
+import { Link as RouterLink } from "react-router-dom";
 export function MyListPage() {
   const {
     movies: myList,
@@ -14,8 +15,13 @@ export function MyListPage() {
           <main>
             <h1>Sorry!</h1>
             <p>
-              Either you aren't cool enough to see the data or it doesn't exist{" "}
-              <em>. . . like your social life.</em>
+              Your list of movie is empty, <Link
+              color='#0a66c2'
+    as={RouterLink}
+    to={'/movies'}
+  >
+    please visit
+  </Link>  the list of movies and start adding
             </p>
           </main>
         </div>
